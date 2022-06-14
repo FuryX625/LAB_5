@@ -15,12 +15,17 @@
   })
 
   cw1.addEventListener("click", function () {
+    answer.innerHTML.textContent="";
+    answer.innerHTML='Loading'
+    
     fetch('https://jsonplaceholder.typicode.com/posts', {Method:'GET'})
+      
      .then(response => response.json())
      .then(function(posty) {
         wyswietlanie(posty);
       })
     function wyswietlanie(posty){
+      answer.innerHTML.textContent="";
       for (var j=0; j<posty.length;j++){
         var blok=document.createElement("div");
         blok.innerHTML='ID użytkownika:'+posty[j].userId+'</br>id:'+posty[j].id+'</br>tytul:'+posty[j].title+'</br>zawartosc:'+posty[j].Body;
